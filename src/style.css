@@ -1,1 +1,69 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  background-image: url(https://wallpaperboat.com/wp-content/uploads/2020/03/poker-01.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card {
+  width: 5rem;
+  height: 8rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-family: "Bodoni Moda", "serif";
+  font-size: 0.8rem;
+}
+
+.reverse-p {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+}
+
+.diamond {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: red;
+}
+.diamond:before {
+  content: "\2666";
+}
+
+.heart {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: red;
+}
+.heart:before {
+  content: "\2665";
+}
+
+.club {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.club:before {
+  content: "\2663";
+}
+
+.spade {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.spade:before {
+  content: "\2660";
+}
