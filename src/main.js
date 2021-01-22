@@ -25,7 +25,7 @@ const orderButton = document.querySelector("#orderbutton");
 const inputCards = document.querySelector("#inputCards");
 const divElem = document.querySelector("#createDivCard");
 const divBubble = document.querySelector("#createDivBubble");
-const divContainer = document.querySelector("#container");
+const bubbleDiv = document.querySelector("#container-bubble");
 
 window.onload = () => {
   let inputNumberfromUser = 0;
@@ -33,42 +33,42 @@ window.onload = () => {
   let arrayCards = [];
   let arrayCardSuits = [];
   generateButton.addEventListener("click", () => {
-    inputNumberfromUser = inputCards.value;
-    arrayFromInput = Array.from({ length: inputNumberfromUser }, () =>
-      randomNumbers()
-    );
-    arrayCardSuits = [];
-    arrayCardSuits = Array.from({ length: inputNumberfromUser }, () =>
-      randomCardSuits()
-    );
-    //console.log(arrayFromInput);
-    arrayCards = [];
-    for (let i = 0; i < arrayFromInput.length; i++) {
-      arrayCards.push(cardHeight[arrayFromInput[i]]);
-      //newCard(arrayCards, arrayCardSuits);
-    }
+    console.log(inputCards.value);
+    divElem.textContent = "";
+    bubbleDiv.textContent = "";
+    if (inputCards.value <= 30) {
+      inputNumberfromUser = inputCards.value;
+      arrayFromInput = Array.from({ length: inputNumberfromUser }, () =>
+        randomNumbers()
+      );
+      arrayCardSuits = [];
+      arrayCardSuits = Array.from({ length: inputNumberfromUser }, () =>
+        randomCardSuits()
+      );
+      arrayCards = [];
+      for (let i = 0; i < arrayFromInput.length; i++) {
+        arrayCards.push(cardHeight[arrayFromInput[i]]);
+      }
 
-    for (let i = 0; i < arrayFromInput.length; i++) {
-      //arrayCards.push(cardHeight[arrayFromInput[i]]);
-      newCard(arrayCards[i], arrayCardSuits[i]);
+      for (let i = 0; i < arrayFromInput.length; i++) {
+        newCard(arrayCards[i], arrayCardSuits[i]);
+      }
     }
-    // console.log(arrayFromInput);
   });
   orderButton.addEventListener("click", () => {
+    bubbleDiv.textContent = "";
     bubbleSort(arrayFromInput, arrayCardSuits);
     arrayCards = [];
     for (let i = 0; i < arrayFromInput.length; i++) {
       arrayCards.push(cardHeight[arrayFromInput[i]]);
     }
-    // console.log(arrayFromInput);
-    // console.log(arrayCards);
   });
 };
 
 const newRowofCard = (arr, arrsuits) => {
   var newRow = document.createElement("div");
   newRow.classList.add("d-flex", "flex-row", "flex-wrap");
-  divContainer.appendChild(newRow);
+  bubbleDiv.appendChild(newRow);
   for (var b = 0; b < arr.length; b++) {
     //console.log(arr[b]);
     bubbleLog(arr[b], arrsuits[b], newRow);
@@ -91,14 +91,6 @@ const bubbleSort = (arr, arrsuits) => {
         arrsuits[j + 1] = temp2;
       }
       newRowofCard(arr, arrsuits);
-      //   console.log(arr);
-      //   for (var b = 0; b < arr.length; b++) {
-      //     //console.log(arr[b]);
-      //     // bubbleLog(arr[b], arrsuits[b]);
-      //   }
-      //   var newRow = document.createElement("div");
-      //   newRow.classList.add("d-flex", "flex-row", "flex-wrap");
-      //   divContainer.appendChild(newRow);
     }
   }
   return arr, arrsuits;

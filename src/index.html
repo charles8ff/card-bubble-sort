@@ -23,12 +23,14 @@
         <div class="p-5">
           <form class="form-inline">
             <div class="form-group mx-sm-3 mb-2">
-              <label for="inputCards" class="sr-only">Input Cards</label>
+              <label for="inputCards" class="sr-only">0</label>
               <input
-                type="text"
+                type="number"
                 class="form-control"
+                min="1"
+                max="5"
                 id="inputCards"
-                placeholder="Give me a number"
+                placeholder="0"
               />
             </div>
             <button
@@ -50,7 +52,7 @@
       </div>
       <div class="d-flex flex-row flex-wrap" id="createDivCard"></div>
     </div>
-    <div class="container-fluid">
+    <div class="container" id="container-bubble">
       <div class="d-flex flex-row flex-wrap" id="createDivBubble"></div>
     </div>
   </body>
