@@ -57,10 +57,10 @@ window.onload = () => {
   });
   ORDER_BUTTON.addEventListener("click", () => {
     CONTAINER_BUBBLE.textContent = "";
-    var h = document.createElement("H2");
-    var t = document.createTextNode("Card Bubble Sort Process");
-    h.appendChild(t);
-    CONTAINER_BUBBLE.appendChild(h);
+    let h2ofBubbleSteps = document.createElement("H2");
+    let textOfSteps = document.createTextNode("Card Bubble Sort Process");
+    h2ofBubbleSteps.appendChild(textOfSteps);
+    CONTAINER_BUBBLE.appendChild(h2ofBubbleSteps);
     bubbleSort(arrayFromInput, arrayCardsSuits);
     arrayCardsHeight = [];
     for (let i = 0; i < arrayFromInput.length; i++) {
