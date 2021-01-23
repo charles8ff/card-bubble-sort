@@ -2,8 +2,9 @@
 
 body {
   background-image: url(https://wallpaperboat.com/wp-content/uploads/2020/03/poker-01.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat-y;
+  background-size: auto;
+  font-weight: bold;
 }
 
 .card {
