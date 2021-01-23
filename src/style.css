@@ -1,7 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 body {
-  background-image: url(https://wallpaperboat.com/wp-content/uploads/2020/03/poker-01.jpg);
+  background-image: url(https://cdn.wallpapersafari.com/45/78/Qy5Pnj.jpg);
   background-repeat: repeat-y;
   background-size: auto;
   font-weight: bold;
@@ -18,6 +18,22 @@ body {
 p {
   font-family: "Bodoni Moda", "serif";
   font-size: 0.8rem;
+}
+
+.bubbleCard {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.steps-number {
+  color: white;
+  font-size: 2.5rem;
+  align-self: center;
+  padding: 2rem;
+}
+
+h2 {
+  color: white;
 }
 
 .reverse-p {

@@ -57,6 +57,10 @@ window.onload = () => {
   });
   ORDER_BUTTON.addEventListener("click", () => {
     CONTAINER_BUBBLE.textContent = "";
+    var h = document.createElement("H2");
+    var t = document.createTextNode("Card Bubble Sort Process");
+    h.appendChild(t);
+    CONTAINER_BUBBLE.appendChild(h);
     bubbleSort(arrayFromInput, arrayCardsSuits);
     arrayCardsHeight = [];
     for (let i = 0; i < arrayFromInput.length; i++) {
@@ -101,7 +105,6 @@ const newCard = (arrNumber, arrSuits) => {
   );
   let suit2 = document.createElement("p");
   suit2.classList.add(arrSuits, "reverse-p");
-
   cardTitle.appendChild(suit1);
   myNewCard.appendChild(cardTitle);
   cardBody.appendChild(number);
@@ -113,6 +116,7 @@ const newCard = (arrNumber, arrSuits) => {
 const bubbleSort = (arr, arrsuits) => {
   //Our Bubble Sort Algorithm
   let len = arr.length;
+  let stepsCounter = 0;
   for (let i = 0; i < len; i++) {
     for (let j = 0; j < len - i - 1; j++) {
       if (arr[j] > arr[j + 1]) {
@@ -125,17 +129,31 @@ const bubbleSort = (arr, arrsuits) => {
         arrsuits[j] = arrsuits[j + 1];
         arrsuits[j + 1] = temp2;
       }
-      newRowofCard(arr, arrsuits); //print the step
+      stepsCounter += 1;
+      newRowofCard(arr, arrsuits, stepsCounter); //print the step
     }
   }
   return arr, arrsuits;
 };
 
-const newRowofCard = (arr, arrsuits) => {
+const newRowofCard = (arr, arrsuits, numberOfStep) => {
   //Adds a new row for the bubbleSort to be printed
   let newRow = document.createElement("div");
-  newRow.classList.add("d-flex", "flex-row", "flex-wrap");
+  newRow.classList.add(
+    "d-flex",
+    "flex-row",
+    "flex-wrap",
+    "border",
+    "border-danger",
+    "rounded",
+    "bubbleCard"
+  );
   CONTAINER_BUBBLE.appendChild(newRow);
+  let createPofSteps = document.createElement("p");
+  let numberOfP = document.createTextNode(numberOfStep);
+  createPofSteps.appendChild(numberOfP);
+  createPofSteps.classList.add("steps-number");
+  newRow.appendChild(createPofSteps);
   for (let b = 0; b < arr.length; b++) {
     bubbleSteps(arr[b], arrsuits[b], newRow);
   }
